@@ -4,12 +4,14 @@ using namespace std;
 
 struct Student {
 	int id;
+	// 0-A,1-C,2-M,3-E
 	int score[4];
 	int rank[4];
 	int best;
 };
 
 int flag = 0;
+// 快速判断id是否存在
 int exists[1000000];
 char course[5] = { 'A', 'C', 'M', 'E' };
 
@@ -29,10 +31,11 @@ int main() {
 			scanf("%d", &stu[i].score[j]);
 			sum += stu[i].score[j];
 		}
-		// 平均成绩向上取整
+		// 平均成绩四舍五入
 		stu[i].score[0] = sum / 3.0 + 0.5;
 	}
 
+	// 按照不同的科目分别排序
 	for (flag = 0; flag < 4; flag++) {
 		sort(stu, stu + n, cmp);
 		stu[0].rank[flag] = 1;
@@ -44,7 +47,7 @@ int main() {
 			}
 		}
 	}
-
+	// 计算最佳排名
 	for (int i = 0; i < n; i++) {
 		exists[stu[i].id] = i + 1;
 		int rank = n + 1;
