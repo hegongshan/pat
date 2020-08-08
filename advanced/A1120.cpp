@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include <set>
 using namespace std;
 
@@ -23,8 +22,7 @@ int main() {
 	}
 
 	cout << friendNumber.size() << endl;
-	for (set<int>::iterator iter = friendNumber.begin();
-			iter != friendNumber.end(); iter++) {
+	for (auto iter = friendNumber.begin(); iter != friendNumber.end(); iter++) {
 		if (iter != friendNumber.begin()) {
 			cout << " ";
 		}
